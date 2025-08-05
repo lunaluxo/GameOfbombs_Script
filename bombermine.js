@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      2025-06-23
 // @description  try to take over the world!
-// @author       You
+// @author       afonya|lunaluxo
 // @match        gameofbombs.com
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant        none
@@ -662,7 +662,7 @@ initializeGameBot();
     setTimeout(() => {
         if (window.gameBotAddonManager) {
             window.gameBotAddonManager.registerFeature('auto-chain-status', {
-                label: 'Цепь (Alt+Ч)',
+                label: 'Цепь (ЫЫЫЫЫЫ)',
                 initialActive: false,
                 initialize: function() {
                     autoChain_active = false;
@@ -673,16 +673,14 @@ initializeGameBot();
                 },
                 onKeyDown: function(event) {
                     // Check for Alt+X (English) or Alt+Ч (Russian) key combination
-                    if (event.altKey && !event.repeat) {
-                        if (event.key === "x" || event.key === "X" ||
-                            event.key === "ч" || event.key === "Ч") {
+                        if (event.key === "s" || event.key === "S" ||
+                            event.key === "ы" || event.key === "Ы") {
                             // Only toggle if we're not in an input field
                             if (document.activeElement.tagName !== "INPUT" &&
                                 document.activeElement.tagName !== "TEXTAREA") {
                                 autoChain_toggle();
                                 event.preventDefault();
                             }
-                        }
                     }
                 },
                 onKeyUp: function(event) {
